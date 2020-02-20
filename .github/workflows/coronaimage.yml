@@ -1,0 +1,14 @@
+name: Corona Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Corona image
+      run: corona build . --file Dockerfile --tag my-image-name:$(date +%s)
